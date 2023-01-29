@@ -1,7 +1,7 @@
 import React, {ChangeEvent, useEffect, useState} from 'react';
 import './index.css'
-import {Form, Stack} from "react-bootstrap";
-import Button from "react-bootstrap/Button";
+import {Stack} from "react-bootstrap";
+
 import Search from "./Search";
 
 export type GalleryType = {
