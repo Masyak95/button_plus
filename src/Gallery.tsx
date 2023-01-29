@@ -1,26 +1,19 @@
 import React, {ChangeEvent, useEffect, useState} from 'react';
 import './index.css'
 import {Stack} from "react-bootstrap";
-
+import Button from "react-bootstrap/Button";
 import Search from "./Search";
+
 
 export type GalleryType = {
     [key: string]: string
 }
 
-// {
-//     id: string
-//     name: string
-//     filename: string
-//     editor: string
-//     parent: string
-// }
-
-type PropsType = {
+export type GalleryPropsType = {
     handleClose: () => void
     addBox: (box: any) => void
 }
-const Gallery = (props: PropsType) => {
+const Gallery = (props: GalleryPropsType) => {
 
     const [posts, setPosts] = useState<GalleryType[]>([])
     const [search, setSearch] = useState('')
@@ -28,7 +21,7 @@ const Gallery = (props: PropsType) => {
     const filteredPosts = posts.filter(p => fields.some(field => p[field].toString().toLowerCase().includes(search.toLowerCase())))
 
     const fetchPosts = () => {
-        fetch("http://82.142.87.102/extAPI/api/icon/read.php?parent=2", {referrerPolicy: "unsafe-url" })
+        fetch("http://82.142.87.102/extAPI/api/icon/read.php?parent=2")
             .then((response) => response.json())
             .then((data) => {
                 console.log(data);
@@ -57,9 +50,11 @@ const Gallery = (props: PropsType) => {
         setPosts(filteredPosts)
     }
 
-
     return (
         <>
+            <div className="button">
+                <Button variant="outline-primary" onClick={props.handleClose}>X</Button>
+            </div>
             <Search value={search} onChange={onChangeHandler} onSearchAll={onSearchAll}
                     onSearchEnergie={onSearchEnergie}/>
             <div className="icon-container">
@@ -72,17 +67,12 @@ const Gallery = (props: PropsType) => {
                                          className="post-body"
                                          alt={"#"}/>
                                     <h5 className="post-title" onClick={() => props.addBox(post)}>{post.name}</h5>
-                                    <div className="button">
-                                        <div className="delete-btn">Delete</div>
-                                    </div>
-                                    <button onClick={props.handleClose}>X</button>
                                 </div>
                             </Stack>
                         </div>
                     );
                 })}
             </div>
-        </>)
-}
+        </>)}
 
-export default Gallery
+    export default Gallery

@@ -1,6 +1,8 @@
 import React, {ChangeEvent} from 'react';
 import {Form, Stack} from "react-bootstrap";
-import Button from "react-bootstrap/Button";
+
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 type PropsType = {
     value: string;
@@ -13,9 +15,10 @@ const Search = ({value, onChange, onSearchAll, onSearchEnergie}: PropsType) => {
         <div className="posts-container">
             <Stack direction="horizontal" gap={3}>
                 <Form.Control className="me-auto" placeholder="Hledat..." value={value} onChange={onChange}/>
-                <Button variant="secondary" onClick={onSearchAll}>Vše</Button>
-                <div className="vr"/>
-                <Button variant="secondary" onClick={onSearchEnergie}>Energie</Button>
+                <DropdownButton id="dropdown-basic-button" title="Vybrat">
+                    <Dropdown.Item href="#/action-1" onClick={onSearchAll}>Vše</Dropdown.Item>
+                    <Dropdown.Item href="#/action-2" onClick={onSearchEnergie}>Energie</Dropdown.Item>
+                </DropdownButton>
             </Stack>
         </div>
     );
