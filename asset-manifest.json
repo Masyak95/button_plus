@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Masyak95/button_plus/static/css/main.c4a23e6d.css",
+    "main.js": "/Masyak95/button_plus/static/js/main.d3b99ec5.js",
+    "static/js/787.28cb0dcd.chunk.js": "/Masyak95/button_plus/static/js/787.28cb0dcd.chunk.js",
+    "index.html": "/Masyak95/button_plus/index.html",
+    "static/media/plus-square.svg": "/Masyak95/button_plus/static/media/plus-square.ae289d0cb310b8da975aacebf8835005.svg",
+    "main.c4a23e6d.css.map": "/Masyak95/button_plus/static/css/main.c4a23e6d.css.map",
+    "main.d3b99ec5.js.map": "/Masyak95/button_plus/static/js/main.d3b99ec5.js.map",
+    "787.28cb0dcd.chunk.js.map": "/Masyak95/button_plus/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c4a23e6d.css",
+    "static/js/main.d3b99ec5.js"
+  ]
+}
