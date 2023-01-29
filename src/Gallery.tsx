@@ -28,7 +28,7 @@ const Gallery = (props: PropsType) => {
     const filteredPosts = posts.filter(p => fields.some(field => p[field].toString().toLowerCase().includes(search.toLowerCase())))
 
     const fetchPosts = () => {
-        fetch("http://82.142.87.102/extAPI/api/icon/read.php?parent=2")
+        fetch("http://82.142.87.102/extAPI/api/icon/read.php?parent=2", {referrerPolicy: "unsafe-url" })
             .then((response) => response.json())
             .then((data) => {
                 console.log(data);
