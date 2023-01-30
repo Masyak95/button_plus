@@ -1,24 +1,21 @@
 import React from "react";
 import s from "./App.module.css"
 import {ReactComponent as AddIcon} from "./plus-square.svg";
+import Post from "./Post";
 
 type ButtonPropsType = {
     data: any
     callBack: () => void
+    post: string
 }
-export const Buttons = ({data: {item}, callBack}: ButtonPropsType) => {
-
+export const Buttons = (props: ButtonPropsType) => {
     return (
         <div>
-                {item?.name ? (
-                    <div data-icon={item?.id}>
-                        <img src={item.filename} alt={"ikona"}/>
-                        <h4>{item.name}</h4>
-                    </div>
-                ) : (
-                    <div onClick={callBack}><AddIcon className={s.icon} /></div>
-                )}
+            {props.data.item ? (
+                <Post post={props.data.item} addBox={props.callBack}/>
+            ) : (
+                <div onClick={props.callBack}><AddIcon className={s.icon}/></div>
+            )}
         </div>
-
     )
 }

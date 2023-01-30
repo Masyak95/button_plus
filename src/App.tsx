@@ -28,14 +28,13 @@ function App() {
         <div className="container">
             <div className="box-container">
                 {data.map((d: any) => (
-                    <Buttons key={d.id} data={d} callBack={() => {
+                    <Buttons post={d.post} key={d.id} data={d} callBack={() => {
                     openGallery();
                     setSelectedBox(d.id)
                     }}/>
                 ))}
             </div>
-
-            {isGalleryShown && <Gallery handleClose={closeGallery} addBox={addBox}/>}
+            {isGalleryShown && <Gallery  handleClose={closeGallery} addBox={addBox}/>}
         </div>
     );
 }
